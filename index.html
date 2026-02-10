@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link rel="icon" type="image/png" href="1.JPG">
+  <title>unclick+</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      user-select: none;
+      margin: 0;
+      min-height: 100vh;
+      background: #6282e9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: -apple-system, BlinkMacSystemFont, "San Francisco",
+             "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-style: normal;
+      color: #ffffff;
+      cursor: pointer;
+      padding: 20px;
+    }
+
+    .container {
+      text-align: center;
+      width: 100%;
+      max-width: 500px;
+      padding: 24px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+    }
+
+    img {
+      width: 100%;
+      max-height: 500px;
+      object-fit: cover;
+      border-radius: 16px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    p {
+      margin-top: 10px;
+      opacity: 0.6;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+
+<body onclick="changeVibe()">
+  <div class="container">
+  <img id="vibeImage" src="1.jpeg" alt="vibe image" />
+  <h1 id="phrase">FELIZ 14 DE FEBRERO MI AMORCITOOO !!!</h1>
+</div>
+
+
+<script>
+  //agrega tus frases aquí
+  const phrases = [
+    "TE AMOOOOO !!!", 
+    "eres mi persona favorita<3",
+    "gracias x hacerme tan feliiiiz siempre (˶˃ ᵕ ˂˶)",
+    "eres mi todooooo",
+    "te adoro infinitamente ( ⸝⸝´꒳`⸝⸝)"
+  ];
+
+  //agrega tus imágenes(las referencias/urls) aquí
+  const images = [
+    "https://i.imgur.com/gj0r2vF.jpeg",
+    "https://i.imgur.com/j8juqQU.jpeg",
+    "https://i.imgur.com/G6i40h7.jpeg",
+    "https://i.imgur.com/IKqQquB.jpeg",
+    "https://i.imgur.com/OoU2S1j.gif",
+    "https://i.imgur.com/n7YjVzZ.gif"
+    
+  ];
+
+  const phraseEl = document.getElementById("phrase");
+  const imageEl = document.getElementById("vibeImage");
+
+  // ESTADO INICIAL ESTÁ MOSTRANDO EL TEXTO
+  let showing = "text";
+  imageEl.style.display = "none";
+
+  function changeVibe() {
+    if (showing === "text") {
+      // ocultar el texto
+      phraseEl.style.display = "none";
+     // mostrar imagen
+      imageEl.src = images[Math.floor(Math.random() * images.length)];
+      imageEl.style.display = "block";
+
+      showing = "image";
+    } else {
+      // ocultar imagen
+      imageEl.style.display = "none";
+
+      // mostrar texto
+      phraseEl.textContent =
+        phrases[Math.floor(Math.random() * phrases.length)];
+      phraseEl.style.display = "block";
+
+      showing = "text";
+    }
+  }
+</script>
+
+</body>
+</html>
